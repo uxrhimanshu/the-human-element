@@ -26,15 +26,19 @@ enterprise UXR practitioner. Chosen 2026-07-12 from the sociological-projects br
   (misdelivery median 2 records vs misconfiguration median 700,000); failure modes
   migrate physical→cloud; industry skews.
 
+- 2026-07-12: P4 DONE. SITE-SPEC.md (Claude: final copy, chart specs per dataviz skill,
+  reference palette) → Codex (terra/high) built site/index.html, self-contained, 6 SVG
+  figures, tooltips, data-table fallbacks, light+dark. Claude verified all numbers/copy,
+  rendered both modes in Chrome, fixed a clipped Figure-6 label. CISA KEV cut from scope
+  (single-source by design, noted in method).
+
 ## To-do
-- P3 wrap: sanity-review F1–F6 numbers once more when writing the report; decide
-  whether CISA KEV earns its place (leaning cut).
-- P4: interactive report site (dataviz skill for charts; Codex builds; scrollytelling-lite).
-- P5: method section, edit, Netlify deploy, link from portfolio.
+- Himanshu: open site/index.html (works from file://), red-pen the copy + figures.
+- P5 after his review: create Netlify site + deploy.sh, deploy, link from
+  himanshukalra.com portfolio row.
 
 ## Awaiting
-- Nothing from Himanshu right now.
+- Himanshu's red-pen review of the report before deploy (P5).
 
 ## Next step
-P4: spec the report site (structure: hook → taxonomy walk with exemplars → F1/F3/F4/F5
-charts → method), then delegate the build to Codex with the dataviz skill loaded.
+P5: Netlify deploy after his review.
