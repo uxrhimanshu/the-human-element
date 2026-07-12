@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>The Human Element — Himanshu Kalra</title>
+  <style>
+    :root { --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781; --grid:#e1e0d9; --baseline:#c3c2b7; --accent:#2a78d6; --accent-deep:#1c5cab; --accent-light:#9ec5f4; --gray-bar:#c3c2b7; --border:rgba(11,11,11,.10); }
+    @media (prefers-color-scheme: dark) { :root { --page:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink-2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --baseline:#383835; --accent:#3987e5; --accent-deep:#6da7ec; --accent-light:#184f95; --gray-bar:#52514e; --border:rgba(255,255,255,.10); } }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; background:var(--page); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none!important; animation:none!important; } }
+    body { margin:0; color:var(--ink); background:var(--page); font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.62; overflow-x:hidden; }
+    .sans, .chart, .figure, nav, .kicker, .byline, .stats, .method, footer { font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { padding:0 24px 96px; }
+    .prose, .hero, .method, .close { max-width:68ch; margin-inline:auto; }
+    .hero { min-height:94vh; display:flex; flex-direction:column; justify-content:center; padding:13vh 0 11vh; }
+    .kicker { color:var(--muted); font-size:11px; font-weight:650; letter-spacing:.16em; margin:0 0 24px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(3.25rem,10vw,7rem); line-height:.94; letter-spacing:-.065em; font-weight:500; margin:0 0 25px; max-width:8ch; }
+    .deck { font-size:clamp(1.35rem,2.8vw,2rem); line-height:1.32; max-width:24ch; margin-bottom:22px; }
+    .byline { color:var(--ink-2); font-size:13px; line-height:1.5; }
+    .stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; border:1px solid var(--border); background:var(--border); margin-top:54px; max-width:880px; }
+    .stat { background:var(--surface); padding:22px 20px 20px; min-height:118px; }
+    .stat-value { display:block; font-weight:650; font-size:clamp(2.5rem,4vw,3rem); letter-spacing:-.06em; line-height:1; margin-bottom:9px; }
+    .stat-label { color:var(--ink-2); font-size:12px; line-height:1.35; display:block; }
+    .topbar { position:fixed; inset:0 0 auto; z-index:10; transform:translateY(-110%); opacity:0; transition:transform 150ms ease,opacity 150ms ease; background:color-mix(in srgb,var(--page) 94%,transparent); border-bottom:1px solid var(--border); backdrop-filter:blur(12px); }
+    .topbar.visible { transform:translateY(0); opacity:1; }
+    .nav-inner { max-width:1100px; margin:auto; display:flex; overflow-x:auto; gap:20px; padding:10px 24px; white-space:nowrap; font-size:12px; }
+    .topbar a { color:var(--muted); text-decoration:none; }
+    .topbar a:hover,.topbar a:focus-visible { color:var(--ink); }
+    section { padding-top:95px; scroll-margin-top:40px; }
+    h2 { font-size:clamp(2.15rem,5vw,3.55rem); font-weight:500; letter-spacing:-.045em; line-height:1.03; margin:0 0 30px; }
+    .prose p { margin-bottom:1.25em; }
+    .figure { max-width:880px; margin:48px auto 0; color:var(--ink); }
+    .chart-title { font-size:13px; font-weight:650; letter-spacing:.015em; margin:0 0 12px; }
+    .chart-wrap { position:relative; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:18px 0 12px; }
+    svg { width:100%; height:auto; display:block; overflow:hidden; }
+    .caption { color:var(--muted); font-size:12px; line-height:1.45; margin:10px 0 0; }
+    .caption b { color:var(--ink-2); font-weight:650; }
+    details { color:var(--ink-2); font-size:12px; margin-top:10px; }
+    summary { cursor:pointer; width:max-content; max-width:100%; }
+    table { border-collapse:collapse; margin-top:8px; width:min(100%,480px); }
+    th,td { text-align:left; border-bottom:1px solid var(--border); padding:4px 8px 4px 0; }
+    th { color:var(--muted); font-weight:600; }
+    .cards { max-width:880px; margin:55px auto 0; }
+    .card { border-top:1px solid var(--border); padding:30px 0 34px; }
+    .card:last-child { border-bottom:1px solid var(--border); }
+    .card h3 { font-size:clamp(1.4rem,3vw,2rem); letter-spacing:-.035em; line-height:1.12; font-weight:500; margin:0 0 14px; }
+    .n { color:var(--muted); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:.7em; font-weight:600; letter-spacing:0; white-space:nowrap; }
+    .card p { max-width:68ch; margin-bottom:1em; }
+    .missing { color:var(--ink-2); }
+    .quote { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:14px; line-height:1.55; max-width:680px; margin:23px 0 0; padding:18px 20px; }
+    .quote p { margin:0 0 9px; }
+    .quote cite { color:var(--muted); font-size:11px; font-style:normal; }
+    .figure.mini { margin:30px 0 0; max-width:680px; }
+    .figure.mini .chart-wrap { padding-top:13px; }
+    .two-part { display:grid; gap:28px; }
+    .method { border-top:1px solid var(--border); color:var(--ink-2); font-size:14px; line-height:1.55; margin-top:110px; padding-top:36px; }
+    .method h2 { color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-size:2rem; margin-bottom:18px; }
+    .method ul { margin:0; padding-left:1.2em; }
+    .method li { padding-left:.2em; margin:0 0 10px; }
+    .close { padding-top:95px; }
+    footer { border-top:1px solid var(--border); color:var(--muted); font-size:12px; margin-top:80px; padding:25px 24px; text-align:center; }
+    footer a { color:inherit; }
+    .tooltip { position:fixed; z-index:20; display:none; pointer-events:none; max-width:230px; background:var(--surface); border:1px solid var(--border); box-shadow:0 6px 22px rgba(0,0,0,.11); color:var(--ink); font:12px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif; padding:8px 10px; }
+    .tooltip strong { display:block; font-weight:650; }
+    .mark { cursor:default; outline:none; }
+    .mark:focus { filter:brightness(.88); }
+    .gridline { stroke:var(--grid); stroke-width:1; vector-effect:non-scaling-stroke; }
+    .axisline { stroke:var(--baseline); stroke-width:1; vector-effect:non-scaling-stroke; }
+    .chart-label { fill:var(--ink-2); font:12px system-ui,-apple-system,"Segoe UI",sans-serif; }
+    .chart-axis { fill:var(--muted); font:11px system-ui,-apple-system,"Segoe UI",sans-serif; }
+    .chart-value { fill:var(--ink-2); font:600 12px system-ui,-apple-system,"Segoe UI",sans-serif; }
+    @media (max-width:600px) { main { padding-inline:16px; } .hero { min-height:90vh; padding-block:12vh 9vh; } .stats { grid-template-columns:1fr; margin-top:38px; } .stat { min-height:auto; padding:18px; } section,.close { padding-top:70px; } .nav-inner { padding-inline:16px; } .figure { margin-top:35px; } .card { padding-block:25px; } }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Section navigation"><div class="nav-inner"><a href="#wrong-villain">The wrong villain</a><a href="#taxonomy">Taxonomy</a><a href="#discovery">Discovery</a><a href="#blast-radius">Blast radius</a><a href="#medium">Medium</a><a href="#design">Design</a><a href="#method">Method</a></div></nav>
+  <main>
+    <header class="hero" id="top">
+      <p class="kicker">A DESIGN-RESEARCH STUDY</p>
+      <h1>The Human Element</h1>
+      <p class="deck">What 10,042 real security incidents reveal about design failure.</p>
+      <p class="byline">Himanshu Kalra · UX researcher · July 2026 · Data: VERIS Community Database</p>
+      <div class="stats" aria-label="Study highlights">
+        <div class="stat"><span class="stat-value">3,321</span><span class="stat-label">incidents involving human error or deception</span></div>
+        <div class="stat"><span class="stat-value">78%</span><span class="stat-label">of error-caused breaches were discovered by outsiders</span></div>
+        <div class="stat"><span class="stat-value">700,000</span><span class="stat-label">median records exposed by a single misconfiguration</span></div>
+      </div>
+    </header>
+
+    <section id="wrong-villain" class="prose">
+      <h2>The wrong villain</h2>
+      <p>Ask someone to picture a data breach and they picture an attacker: hooded, foreign, brilliant. The record disagrees. In the VERIS Community Database — ten thousand publicly documented security incidents, coded by a community of analysts on a common schema — mistakes rival malice. 2,681 incidents involve error as an action. 2,650 of them involve no hacking and no social engineering at all: no adversary, no exploit, nobody to blame but the way the work was designed.</p>
+      <p>For every four breaches caused by attackers in this corpus, three are self-inflicted.</p>
+      <p>This matters for design because the security industry is organized around the attacker. Budgets, tooling, and attention all face outward. The inward-facing failures — the misaddressed letter, the public bucket, the dumpster — belong to no one. This study reads them as what they are: design failures, in the tradition of Don Norman and James Reason. When the same mistake recurs across thousands of organizations, the interesting question is not who erred, but what design made the error easy.</p>
+    </section>
+    <figure class="figure" data-figure="1"><div class="chart-title">What causes breaches in this corpus</div><div class="chart-wrap"><svg id="action-chart" role="img" aria-label="Horizontal bar chart of incidents per action type"></svg></div><figcaption class="caption"><b>Figure 1.</b> Incidents per action type. Multi-label coding; totals exceed the corpus total.</figcaption><details><summary>Data table</summary><table><thead><tr><th>Action type</th><th>Incidents</th></tr></thead><tbody><tr><td>Hacking</td><td>3,364</td></tr><tr><td>Error</td><td>2,681</td></tr><tr><td>Misuse</td><td>1,789</td></tr><tr><td>Malware</td><td>1,646</td></tr><tr><td>Physical</td><td>1,626</td></tr><tr><td>Social</td><td>644</td></tr></tbody></table></details></figure>
+
+    <section id="taxonomy" class="prose"><h2>A taxonomy of design failure</h2><p>Every human-element incident was assigned to one of nine design-failure classes, derived from VERIS's own action varieties and refined against the incident narratives. The names deliberately describe the system, not the person. 'Misdelivery' sounds like someone's fault; 'wrong-recipient failure' asks what let the wrong recipient happen.</p></section>
+    <figure class="figure" data-figure="2"><div class="chart-title">The nine classes</div><div class="chart-wrap"><svg id="class-chart" role="img" aria-label="Horizontal bar chart of nine design-failure classes"></svg></div><figcaption class="caption"><b>Figure 2.</b> 359 further incidents carry a human element but fall outside these classes (programming errors, bribery, extortion…).</figcaption><details><summary>Data table</summary><table><thead><tr><th>Class</th><th>Incidents</th></tr></thead><tbody><tr><td>Wrong-recipient failures</td><td>973</td></tr><tr><td>Trust-cue failures</td><td>431</td></tr><tr><td>Unprotected portability</td><td>415</td></tr><tr><td>Visibility-state failures</td><td>397</td></tr><tr><td>Unsafe defaults &amp; configuration</td><td>336</td></tr><tr><td>End-of-life failures</td><td>321</td></tr><tr><td>Authority-verification failures</td><td>70</td></tr><tr><td>Ambient &amp; verbal disclosure</td><td>41</td></tr><tr><td>Input-integrity failures</td><td>12</td></tr></tbody></table></details></figure>
+    <div class="cards">
+      <article class="card"><h3>Wrong-recipient failures <span class="n">n=973</span></h3><p>Information reaches the wrong person through a legitimate channel. Postal mail, not email, is the leading mechanism — mail merges, stuffed envelopes, look-alike names.</p><p class="missing">The missing design: recipient confirmation, and disambiguation when two records nearly collide.</p><blockquote class="quote"><p>“Medication for Veteran A was mailed to Veteran B. The first and last name was the same for both veterans.”</p><cite>VCDB incident narrative</cite></blockquote><figure class="figure mini" data-figure="3"><div class="chart-title">Mechanisms mentioned in narratives</div><div class="chart-wrap"><svg id="mechanism-chart" role="img" aria-label="Horizontal bar chart of mechanisms mentioned in wrong-recipient narratives"></svg></div><figcaption class="caption"><b>Figure 3.</b> Keyword mentions; indicative, not exhaustive.</figcaption><details><summary>Data table</summary><table><thead><tr><th>Mechanism</th><th>Mentions</th></tr></thead><tbody><tr><td>postal</td><td>393</td></tr><tr><td>email</td><td>209</td></tr><tr><td>fax</td><td>57</td></tr><tr><td>wrong attachment</td><td>54</td></tr></tbody></table></details></figure></article>
+      <article class="card"><h3>Visibility-state failures <span class="n">n=397</span></h3><p>Private content enters a public state without the actor understanding the state change — posted files, indexed documents, data visible on screens and envelope windows.</p><p class="missing">The missing design: a legible public/private state, and a preview of what will actually be exposed.</p><blockquote class="quote"><p>“There was a privacy breach this morning for a brief period (10-15 minutes) where the Pharmacy Bingo Board was displaying private patient information on monitors throughout the hospital.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+      <article class="card"><h3>Unsafe defaults &amp; configuration complexity <span class="n">n=336</span></h3><p>Open-by-default datastores, authentication never enabled, settings silently lost during upgrades. The person configuring never sees the delta between intended and actual exposure.</p><p class="missing">The missing design: secure defaults and an exposure preview.</p><blockquote class="quote"><p>“The information of more than 2 million Dow Jones customers was left exposed online after the company made an error in the access preferences on a cloud storage system.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+      <article class="card"><h3>Unprotected portability <span class="n">n=415</span></h3><p>Data walks out of controlled space and is lost. In the narratives, paper outnumbers laptops.</p><p class="missing">The missing design: encryption by default, and minimizing what portable artifacts carry at all.</p><blockquote class="quote"><p>“A VA employee lost an inpatient roster with 24 patients' information… He cannot recall where he left this paper and it is in essence floating.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+      <article class="card"><h3>End-of-life failures <span class="n">n=321</span></h3><p>Records in dumpsters, storage units auctioned with patient files inside, interview tapes left in a decommissioned building. Disposal is the least-designed moment in the data lifecycle.</p><p class="missing">The missing design: a forcing function between "sensitive" and "gone".</p><blockquote class="quote"><p>“An employee removed two IV bags with PII of two Veterans on the labels from the regular trash.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+      <article class="card"><h3>Ambient &amp; verbal disclosure <span class="n">n=41</span></h3><p>The interface is social space itself: conversations overheard, information posted to personal feeds.</p><blockquote class="quote"><p>“Employee A overheard Employee B and C discussing and reviewing a patient's information.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+      <article class="card"><h3>Input-integrity failures <span class="n">n=12</span></h3><p>Mis-keyed identifiers, missing sensitivity flags. Almost certainly undercounted — entry errors usually surface downstream as some other failure.</p></article>
+      <article class="card"><h3>Trust-cue failures <span class="n">n=431</span></h3><p>Phishing works because the channel gives the recipient no reliable way to tell authentic from forged — sender, links and attachments are all spoofable at the surface the user can see. Several of the most sophisticated intrusion campaigns in the corpus begin with the least sophisticated element: an email that looked right.</p><blockquote class="quote"><p>“The prosecutor's office was hit by ransomware in January 2015 when an employee clicked on a link embedded in a phishing email.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+      <article class="card"><h3>Authority-verification failures <span class="n">n=70</span></h3><p>Urgent instructions from apparent authority, in workflows with no out-of-band confirmation step. Business email compromise, W-2 harvests, and — already in this corpus — a synthesized voice.</p><blockquote class="quote"><p>“The CEO of an unnamed UK-based energy company thought he was talking on the phone with his boss… who'd asked him to urgently transfer €220,000.”</p><cite>VCDB incident narrative</cite></blockquote></article>
+    </div>
+
+    <section id="discovery" class="prose"><h2>Nobody catches their own mistakes</h2><p>How does an organization learn that it has breached itself? Mostly, it doesn't. Where the discovery method is recorded — 1,248 of the 2,681 error incidents — 78% were discovered by someone outside the organization. The single most common discoverer is the customer: the person whose data was exposed is the person who finds the exposure. Attackers at least have a reason to stay hidden; a misdelivered letter hides nothing, and still the institution is the last to know.</p><p>One caveat is owed here: incidents discovered by outsiders are also more likely to become public at all, so the true external share is probably lower. The asymmetry, not the exact figure, is the finding.</p></section>
+    <figure class="figure" data-figure="4"><div class="two-part"><div><div class="chart-title">Who discovers error-caused breaches</div><div class="chart-wrap"><svg id="stack-chart" role="img" aria-label="100 percent stacked bar of discovery location"></svg></div></div><div><div class="chart-title">External discoverers</div><div class="chart-wrap"><svg id="discoverer-chart" role="img" aria-label="Horizontal bar chart of external discoverers"></svg></div></div></div><figcaption class="caption"><b>Figure 4.</b> n = 1,248 error incidents with a recorded discovery method.</figcaption><details><summary>Data table</summary><table><thead><tr><th>Discovery location / external discoverer</th><th>Value</th></tr></thead><tbody><tr><td>External</td><td>78%</td></tr><tr><td>Internal</td><td>21%</td></tr><tr><td>Partner</td><td>1%</td></tr><tr><td>Customer</td><td>371</td></tr><tr><td>Security researcher</td><td>180</td></tr><tr><td>Found documents</td><td>158</td></tr><tr><td>Unrelated third party</td><td>77</td></tr><tr><td>Actor disclosure</td><td>38</td></tr><tr><td>Other</td><td>17</td></tr><tr><td>Law enforcement</td><td>13</td></tr><tr><td>Audit</td><td>8</td></tr></tbody></table></details></figure>
+
+    <section id="blast-radius" class="prose"><h2>The blast-radius ladder</h2><p>Not all design failures are the same size, and the pattern in their sizes is the sharpest finding in this corpus. Where a record count is known, the median wrong-recipient failure exposes two records — one letter, one wrong hands. The median misconfiguration exposes seven hundred thousand.</p><p>A person can only mis-send one envelope at a time. A checkbox on a cloud console operates on everything behind it. As the interface becomes more abstract — from envelope to attachment to bucket policy — the same-sized human slip touches more people. The duty of care owed by the design scales the same way: an error-proof console matters five orders of magnitude more than an error-proof envelope.</p></section>
+    <figure class="figure" data-figure="5"><div class="chart-title">Median records exposed per failure class</div><div class="chart-wrap"><svg id="dot-chart" role="img" aria-label="Log scale dot plot of median records exposed per failure class"></svg></div><figcaption class="caption"><b>Figure 5.</b> Medians; record counts are known for roughly 30% of incidents. Log scale.</figcaption><details><summary>Data table</summary><table><thead><tr><th>Failure class</th><th>Median records</th><th>n</th></tr></thead><tbody><tr><td>Wrong-recipient</td><td>2</td><td>802</td></tr><tr><td>Unprotected portability</td><td>808</td><td>335</td></tr><tr><td>Visibility-state</td><td>1,581</td><td>256</td></tr><tr><td>Trust-cue (phishing)</td><td>3,020</td><td>116</td></tr><tr><td>Unsafe defaults</td><td>700,000</td><td>236</td></tr></tbody></table></details></figure>
+
+    <section id="medium" class="prose"><h2>Failure follows the medium</h2><p>The corpus also watches failure move. Among human-element incidents of 2010–2014, the physical world dominates: misdelivered letters, lost paper, dumpsters. A decade later the physical classes have collapsed and one digital class has taken over: by 2020–2024, unsafe defaults and misconfiguration account for over half of coded human-element incidents. The mistake did not go away — it moved into the console, and grew six orders of magnitude in reach.</p><p>Reporting also declined in this period, so shares are more trustworthy than counts; the direction is unambiguous.</p></section>
+    <figure class="figure" data-figure="6"><div class="chart-title">Share of human-element incidents by era</div><div class="chart-wrap"><svg id="line-chart" role="img" aria-label="Line chart of human-element incident share by era"></svg></div><figcaption class="caption"><b>Figure 6.</b> Era totals: 1,889 / 1,166 / 166 incidents — the last era is small; read shares, not counts.</figcaption><details><summary>Data table</summary><table><thead><tr><th>Class</th><th>2010–14</th><th>2015–19</th><th>2020–24</th></tr></thead><tbody><tr><td>Unsafe defaults &amp; configuration</td><td>3%</td><td>16%</td><td>54%</td></tr><tr><td>Wrong-recipient</td><td>36%</td><td>23%</td><td>8%</td></tr><tr><td>Unprotected portability</td><td>16%</td><td>8%</td><td>2%</td></tr><tr><td>End-of-life</td><td>11%</td><td>9%</td><td>1%</td></tr></tbody></table></details></figure>
+
+    <section id="design" class="close"><h2>What this asks of design</h2><p>Security has a well-funded conversation about attackers and a nearly empty one about defaults, confirmation steps, state legibility, and end-of-life. The findings here are an argument that the second conversation belongs to design research: the failures are patterned, the patterns are legible in ordinary qualitative data, and every one of the nine classes names a designable surface. The human element is not the weakest link. It is the part of the system that was never given a designer.</p></section>
+    <section id="method" class="method"><h2>Method</h2><ul><li>Source: VERIS Community Database (VCDB), the open incident corpus behind Verizon's DBIR; combined JSON of 2026-07-03; 10,042 incidents, 9,523 with free-text narratives. Single-source by design.</li><li>Unit &amp; coding: incidents multi-labeled into nine design-failure classes by deterministic rules over VERIS action varieties (mapping table published in the repo); sub-mechanisms from word-boundary keyword matching over narratives, reported as "at least n mentions".</li><li>All prevalence figures are within-corpus, not population estimates. VCDB bulk-imported US Veterans Affairs privacy reports, inflating healthcare/public-administration and postal mechanisms; coverage peaks 2010–2019 and thins after 2020; record counts are known for ~30% of incidents; the discovery-method finding carries a visibility bias acknowledged in the text.</li><li>Pipeline: Python, deterministic, re-runnable (fetch → tidy → code → profile); exemplar quotes are verbatim incident narratives from the public dataset, lightly truncated.</li><li>Author: Himanshu Kalra. Built as a public design-research study, 2026.</li></ul></section>
+  </main>
+  <footer>© 2026 <a href="https://himanshukalra.com">Himanshu Kalra</a> — UX researcher.</footer>
+  <div id="tooltip" class="tooltip" role="tooltip"></div>
+  <script>
+  'use strict';
+  const DATA = {
+    actions:[['Hacking',3364],['Error',2681],['Misuse',1789],['Malware',1646],['Physical',1626],['Social',644]],
+    classes:[['Wrong-recipient failures',973],['Trust-cue failures',431],['Unprotected portability',415],['Visibility-state failures',397],['Unsafe defaults & configuration',336],['End-of-life failures',321],['Authority-verification failures',70],['Ambient & verbal disclosure',41],['Input-integrity failures',12]],
+    mechanisms:[['postal',393],['email',209],['fax',57],['wrong attachment',54]],
+    discoverers:[['Customer',371],['Security researcher',180],['Found documents',158],['Unrelated third party',77],['Actor disclosure',38],['Other',17],['Law enforcement',13],['Audit',8]],
+    median:[['Wrong-recipient',2,802],['Unprotected portability',808,335],['Visibility-state',1581,256],['Trust-cue (phishing)',3020,116],['Unsafe defaults',700000,236]],
+    eras:{labels:['2010–14','2015–19','2020–24'],series:[['Unsafe defaults',[3,16,54],true],['Wrong-recipient',[36,23,8]],['Unprotected portability',[16,8,2]],['End-of-life',[11,9,1]]]},
+    discovery:[['External',78],['Internal',21],['Partner',1]]
+  };
+  const NS='http://www.w3.org/2000/svg';
+  const el=(name,attrs={},text='')=>{const n=document.createElementNS(NS,name);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text!==undefined)n.textContent=text;return n;};
+  const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const fmt=n=>n.toLocaleString('en-US');
+  const tip=document.getElementById('tooltip');
+  function tooltip(node,label,value,note){ node.classList.add('mark'); node.setAttribute('tabindex','0'); node.addEventListener('pointerenter',e=>showTip(e,label,value,note)); node.addEventListener('pointermove',e=>moveTip(e)); node.addEventListener('pointerleave',hideTip); node.addEventListener('focus',()=>{const r=node.getBoundingClientRect();showTip({clientX:r.left+r.width/2,clientY:r.top},label,value,note);}); node.addEventListener('blur',hideTip); }
+  function showTip(e,label,value,note){tip.innerHTML='<strong>'+label+'</strong><span>'+value+(note?' · '+note:'')+'</span>';tip.style.display='block';moveTip(e);}
+  function moveTip(e){const x=Math.min(innerWidth-245,Math.max(8,e.clientX+13)),y=Math.min(innerHeight-58,Math.max(8,e.clientY+13));tip.style.left=x+'px';tip.style.top=y+'px';}
+  function hideTip(){tip.style.display='none';}
+  function text(svg,x,y,value,cls='chart-label',anchor='start'){svg.append(el('text',{x,y,class:cls,'text-anchor':anchor,'dominant-baseline':'middle'},value));}
+  function renderBars(id,rows,{highlight=null,note='',compact=false}={}){const svg=document.getElementById(id), W=880, L=compact?138:235, R=76, row=30, top=10, H=top+rows.length*row+9, max=Math.max(...rows.map(r=>r[1]));svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.replaceChildren(); const base=L, width=W-L-R; svg.append(el('line',{x1:base,y1:1,x2:base,y2:H-8,class:'axisline'})); rows.forEach(([label,value],i)=>{const y=top+i*row, w=width*value/max, color=highlight===null||label===highlight?css('--accent'):css('--gray-bar');text(svg,L-10,y+10,label,'chart-label','end');const path=el('path',{d:`M ${base} ${y} H ${base+w-4} Q ${base+w} ${y} ${base+w} ${y+4} V ${y+16} Q ${base+w} ${y+20} ${base+w-4} ${y+20} H ${base} Z`,fill:color});svg.append(path);const hit=el('rect',{x:0,y:y-5,width:W,height:row,fill:'transparent'});svg.append(hit);tooltip(hit,label,fmt(value),note);text(svg,Math.min(base+w+8,W-2),y+10,fmt(value),'chart-value');});}
+  function renderStack(){const svg=document.getElementById('stack-chart'),W=880,H=68,L=2,R=2,y=14,h=20;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.replaceChildren();let x=L;DATA.discovery.forEach(([label,value],i)=>{const w=(W-L-R)*value/100,gap=i<2?2:0, color=i===0?css('--accent'):i===1?css('--gray-bar'):css('--baseline');const rect=el('rect',{x,y,width:w-gap,height:h,fill:color,rx:i===2?4:0});svg.append(rect);tooltip(rect,label,value+'%','n = 1,248');const inside=w>95;if(inside) text(svg,x+(w-gap)/2,y+h/2,label+' '+value+'%','chart-value','middle');else text(svg,W-2,50,label+' '+value+'%','chart-label','end');x+=w;});}
+  function renderDots(){const svg=document.getElementById('dot-chart'),W=880,H=225,L=190,R=106,T=20,B=37,plot=W-L-R, yStep=32;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.replaceChildren();for(let i=0;i<=6;i++){const x=L+plot*i/6;svg.append(el('line',{x1:x,y1:T-5,x2:x,y2:H-B,class:'gridline'}));text(svg,x,H-17,['1','10','100','1k','10k','100k','1M'][i],'chart-axis','middle');}DATA.median.forEach(([label,value,n],i)=>{const y=T+i*yStep+12, x=L+plot*Math.log10(value)/6, color=label==='Unsafe defaults'?css('--accent'):css('--gray-bar');text(svg,L-12,y,label,'chart-label','end');svg.append(el('line',{x1:L,y1:y,x2:L+plot,y2:y,class:'gridline',opacity:'.45'}));const c=el('circle',{cx:x,cy:y,r:label==='Unsafe defaults'?7:6,fill:color,stroke:css('--surface'),'stroke-width':2});svg.append(c);tooltip(c,label,fmt(value),'n='+fmt(n));text(svg,Math.min(x+11,W-1),y,fmt(value),'chart-value');});}
+  function renderLines(){const svg=document.getElementById('line-chart'),W=880,H=285,L=48,R=205,T=12,B=39,plotW=W-L-R,plotH=H-T-B;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.replaceChildren();[0,20,40,60].forEach(v=>{const y=T+plotH-(v/60*plotH);svg.append(el('line',{x1:L,y1:y,x2:L+plotW,y2:y,class:'gridline'}));text(svg,L-8,y,v+'%','chart-axis','end');});const xs=DATA.eras.labels.map((_,i)=>L+plotW*i/2);DATA.eras.labels.forEach((label,i)=>text(svg,xs[i],H-16,label,'chart-axis','middle'));DATA.eras.series.forEach(([name,values,highlight])=>{const color=highlight?css('--accent'):css('--gray-bar'),points=values.map((v,i)=>[xs[i],T+plotH-(v/60*plotH)]),line=el('path',{d:points.map((p,i)=>(i?'L':'M')+' '+p[0]+' '+p[1]).join(' '),fill:'none',stroke:color,'stroke-width':2,'vector-effect':'non-scaling-stroke'});svg.append(line);tooltip(line,name,values.map(v=>v+'%').join(' → '));points.forEach(([x,y],i)=>{const c=el('circle',{cx:x,cy:y,r:5,fill:color,stroke:css('--surface'),'stroke-width':2});svg.append(c);tooltip(c,name,DATA.eras.labels[i]+': '+values[i]+'%');});const [endX,endY]=points[2], offset=name==='Unprotected portability'?-9:name==='End-of-life'?12:0;text(svg,endX+11,endY+offset,name+' '+values[2]+'%','chart-value');});}
+  function renderAll(){renderBars('action-chart',DATA.actions,{highlight:'Error'});renderBars('class-chart',DATA.classes);renderBars('mechanism-chart',DATA.mechanisms,{compact:true,note:'at least n mentions'});renderStack();renderBars('discoverer-chart',DATA.discoverers,{highlight:'Customer'});renderDots();renderLines();}
+  renderAll();
+  document.querySelectorAll('.figure').forEach(figure=>figure.setAttribute('tabindex','0'));
+  const topbar=document.querySelector('.topbar'), hero=document.querySelector('.hero');new IntersectionObserver(([entry])=>topbar.classList.toggle('visible',!entry.isIntersecting),{threshold:0}).observe(hero);
+  </script>
+</body>
+</html>
