@@ -17,15 +17,24 @@ enterprise UXR practitioner. Chosen 2026-07-12 from the sociological-projects br
   All ground-truth counts reconcile exactly (10,042 / 9,523 / 2,681 / 644; Misdelivery 973
   … Pretexting 70). Outputs: data/derived/{incidents,narratives}.csv, stats.json, PROFILE.md.
 
+- 2026-07-12: P2 DONE. TAXONOMY.md v1 (9 classes + C0, exemplars, VA-bias caveat);
+  taxonomy.py (Codex luna built; Claude fixed keyword false-positives with word-boundary
+  regex; class counts verified; exemplars spot-checked). Gotcha: backgrounded codex exec
+  hung on stdin once — always append </dev/null.
+- 2026-07-12: P3 core DONE. FINDINGS.md F1–F6: 78% external discovery (customer #1);
+  postal misdelivery 2x email; 26.4% purely self-inflicted; blast-radius ladder
+  (misdelivery median 2 records vs misconfiguration median 700,000); failure modes
+  migrate physical→cloud; industry skews.
+
 ## To-do
-- P2: refine taxonomy against real narratives; exemplar selection.
-- P3: analysis (discovery-method/time-to-discovery likely headline finding).
-- P4: interactive report site (dataviz skill for charts).
+- P3 wrap: sanity-review F1–F6 numbers once more when writing the report; decide
+  whether CISA KEV earns its place (leaning cut).
+- P4: interactive report site (dataviz skill for charts; Codex builds; scrollytelling-lite).
 - P5: method section, edit, Netlify deploy, link from portfolio.
 
 ## Awaiting
 - Nothing from Himanshu right now.
 
 ## Next step
-P2: refine the taxonomy against real narratives (read PROFILE.md samples + narratives.csv),
-rule-based class assignment, exemplar selection.
+P4: spec the report site (structure: hook → taxonomy walk with exemplars → F1/F3/F4/F5
+charts → method), then delegate the build to Codex with the dataviz skill loaded.
