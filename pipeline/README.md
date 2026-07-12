@@ -5,6 +5,7 @@ Run from the repository root:
 ```sh
 python3 pipeline/fetch.py
 python3 pipeline/build.py
+python3 pipeline/taxonomy.py
 python3 pipeline/profile.py
 ```
 
@@ -41,6 +42,11 @@ the three narrative samples for each variety.
 `social_varieties`, and source `summary`. `human_element` is true when `action.error` or
 `action.social` is present. `stats.json` contains counts and variety cross-tabs; `PROFILE.md`
 is the readable profile and sample narratives.
+
+`taxonomy.py` runs after `build.py` and before the optional profiling step. It reads
+`data/derived/incidents.csv` and `data/derived/narratives.csv`, then writes
+`data/derived/coded.csv` with class and sub-mechanism assignments and
+`data/derived/taxonomy_stats.json` with taxonomy counts.
 
 ## VERIS normalization notes
 
