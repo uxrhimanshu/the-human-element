@@ -11,9 +11,13 @@ enterprise UXR practitioner. Chosen 2026-07-12 from the sociological-projects br
   Dataset profiled: 10,042 incidents, 9,523 with narratives; error 2,681 / social 644.
   Design-failure taxonomy v0 drafted (SPEC.md). Project scaffolded, git init.
 - 2026-07-12: P1 pipeline delegated to Codex (gpt-5.6-terra, medium).
+- 2026-07-12: P1 DONE. Codex built fetch/build/profile (stdlib-only; couldn't run live —
+  sandbox has no network). Claude ran it, found + fixed two data-shape bugs
+  (discovery_method is a nested dict; 23 incident_ids shared across 44 rows → row_id).
+  All ground-truth counts reconcile exactly (10,042 / 9,523 / 2,681 / 644; Misdelivery 973
+  … Pretexting 70). Outputs: data/derived/{incidents,narratives}.csv, stats.json, PROFILE.md.
 
 ## To-do
-- P1: review Codex pipeline output against P0 counts.
 - P2: refine taxonomy against real narratives; exemplar selection.
 - P3: analysis (discovery-method/time-to-discovery likely headline finding).
 - P4: interactive report site (dataviz skill for charts).
@@ -23,4 +27,5 @@ enterprise UXR practitioner. Chosen 2026-07-12 from the sociological-projects br
 - Nothing from Himanshu right now.
 
 ## Next step
-Review P1 output when Codex finishes.
+P2: refine the taxonomy against real narratives (read PROFILE.md samples + narratives.csv),
+rule-based class assignment, exemplar selection.
