@@ -117,6 +117,20 @@ Open it straight from disk.
 | `pipeline/` | fetch → build → taxonomy → profile |
 | `site/index.html` | the interactive report |
 
+## See also
+
+[`clicked-through`](https://github.com/uxrhimanshu/clicked-through) — the
+qualitative counterpart. This study establishes from incident records that
+warnings and defaults fail at scale, but cannot say *why* anyone proceeded,
+because VCDB stores outcomes rather than reasoning. That one asks technical
+practitioners, and finds them describing the mechanisms unprompted: a warning with
+no compliant answer available, an organisation that forbids the compliant answer,
+and a fix whose real objective is the silence of the indicator.
+
+Neither establishes a frequency. Together they do something harder to dismiss — a
+pattern found in incident records, described independently by the people who work
+inside it.
+
 ---
 
 Built by [Himanshu Kalra](https://uxrhimanshu.com). Data: the VERIS Community Database,
